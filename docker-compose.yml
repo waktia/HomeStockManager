@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+    web:
+        build: .
+        ports:
+          - "3000:3000"
+        volumes:
+          - ".:/HomeStockManager"
+        tty: true
+        stdin_open: true
+        depends_on:
+          - db
+        environment:
+         DATABASE_URL: ${DATABASE_URL}
+
+    db:
+      image: postgres:latest
+      volumes:
+        - "postgres_data:/var/lib/postgresql/data"
+      environment:
+        POSTGRES_DB: ${POSTGRES_DB}
+        POSTGRES_USER: ${POSTGRES_USER}
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      ports:
+        - "5432:5432"
+
+volumes:
+  postgres_data:
