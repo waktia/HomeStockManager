@@ -4,7 +4,7 @@ RSpec.describe StaticPagesController, type: :controller do
 
   describe "/help" do
     it "responds successfully" do
-      get help_path
+      get :help
       expect(response).to be_successful
     end
   end
