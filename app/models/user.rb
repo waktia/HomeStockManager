@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   def User.digest(string)
     const = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
+    BCrypt::Password.create(string, cost: const)
   end
 
   def User.new_token
@@ -33,6 +33,6 @@ class User < ApplicationRecord
   end
 
   def session_token
-    remember_diget || remember
+    remember_digest || remember
   end
 end
