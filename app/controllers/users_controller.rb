@@ -16,10 +16,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      reset_session
-      log_in @user
-      flash[:success] = "welcome to Home Stock Manager"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = "メールを確認して、本登録を完了してください"
+      redirect_to root_url
     else
       render "new", status: :unprocessable_entity
     end
