@@ -1,17 +1,30 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <h1>HomeStockManager</h1>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render "shared/user_info" %>
+      </section>
+      <section class="item_form">
+        <%= render "shared/item_form" %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>今週切れそうなもの</h3>
+        <table>
+          <tr>
+            <th>名前</th>
+            <th>在庫数</th>
+            <th>消費日数</th>
+            <th>削除</th>
+          </tr>
+          <%= render "shared/feed" %>
+        </table>
+    </div>
+  </div>
+
+<% else %>
+  <h1>HomeStockManager</h1>
     <div class="center jumbotron">
       <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
     </div>
-  </header>
-</body>
-</html>
+<% end %>
