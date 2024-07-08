@@ -1,0 +1,7 @@
+  <tr>
+    <td><%= main_category.name %></td>
+    <% if current_user?(main_category.user) %>
+    <td><%= link_to "編集", edit_main_category_path(main_category.user, main_category) %></td>
+    <td><%= link_to "削除", main_category, data: { "turbo-method": :delete, turbo_comfirm: "本当に削除しますか?" }%></td>
+    <% end %>
+  </tr>

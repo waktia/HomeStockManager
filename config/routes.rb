@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   get '/login',    to: "sessions#new"
   post "/login",   to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  resources :users
+  resources :users do
+    resources :main_categories, shallow: true
+  end
   resources :account_ativations, only: [:edit]
   resources :password_resets,    only: [:new, :create, :edit, :update]
-  resources :items,              only: [:create, :destroy]
+  resources :items, only:[:create, :edit, :update, :destroy]
+
   get "/items", to: "static_pages#home"
 end
