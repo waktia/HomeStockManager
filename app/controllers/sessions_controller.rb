@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         log_in user
         redirect_to forwarding_url || user
       else
-        flash[:warning] = "アカウントの本登録が完了していません。　メールを確認して、本登録を完了してください"
+        flash[:warning] = "アカウントの本登録が完了していません。 メールを確認して、本登録を完了してください"
         redirect_to root_url
       end
     else

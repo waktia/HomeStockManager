@@ -1,1 +1,12 @@
 <h2>カテゴリー名変更</h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @main_category) do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <%= f.label :name, "カテゴリー名" %>
+      <%= f.text_field :name, value: @main_category.name, class: "form-control" %>
+      <%= f.submit "変更する", class: "btn btn-primary" %>　
+      <% end %>
+   </div>
+     <button type="button"><%= link_to "戻る", :back %></button>
+  </div>
