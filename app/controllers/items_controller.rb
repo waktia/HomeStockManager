@@ -1,5 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:index, :create, :destroy]
+
+  def index
+    @user = current_user
+    @feed_items = current_user.feed
+  end
+
 
   def create
     @item = current_user.items.build(item_params)
