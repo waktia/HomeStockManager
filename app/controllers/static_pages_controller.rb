@@ -10,5 +10,6 @@ class StaticPagesController < ApplicationController
 
 
   def help
+    @user = User.find(current_user.id)
   end
 end
