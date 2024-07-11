@@ -11,13 +11,7 @@
     <% if @user.items.any? %>
     <div class="col-md-8">
         <table>
-          <tr>
-            <th>名前</th>
-            <th>在庫数</th>
-            <th>消費日数</th>
-            <th>編集</th>
-            <th>削除</th>
-          </tr>
+          <%= render "shared/item_table" %>
           <%= render "shared/feed" %>
         </table>
     </div>
