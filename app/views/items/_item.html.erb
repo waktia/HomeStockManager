@@ -1,20 +1,11 @@
 
-<%
-=begin%>
- <table>
-  <tr>
-    <th>名前</th>
-    <th>在庫数</th>
-    <th>消費日数</th>
-    <th>削除</th>
-  </tr>
-<%
-=end%>
+
   <tr>
     <td><%= item.name %></td>
     <td><%= item.stock %></td>
     <td><%= item.days %></td>
     <% if current_user?(item.user) %>
-    <td><%= link_to "削除", item, data: { "turbo-method": :delete, turbo_comfirm: "本当に削除しますか?" }%></td>
+    <td><%= link_to "編集",  edit_user_item_path(@user,item.id) %></td>
+    <td><%= link_to "削除", @user_item, data: { "turbo-method": :delete, turbo_comfirm: "本当に削除しますか?" }%></td>
     <% end %>
   </tr>

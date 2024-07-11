@@ -1,9 +1,13 @@
 class ItemsController < ApplicationController
-  before_action :logged_in_user, only: [:index, :create, :destroy]
-
+  before_action :logged_in_user, only: [:index, :create, :update, :destroy]
+  before_action :set_user, only:[:index, :create, :edit, :update]
   def index
-    @user = current_user
     @feed_items = current_user.feed
+    @item = current_user.items.build
+  end
+
+  def edit
+    @item = current_user.items.find_by(id: params[:id])
   end
 
 
@@ -13,8 +17,19 @@ class ItemsController < ApplicationController
       flash[:success] = "在庫管理の登録が完了しました"
       redirect_to root_url
     else
+      Rails.logger.info @item.errors.full_messages
       @feed_items = current_user.feed
       render "static_pages/home", status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @item = current_user.items.find_by(id: params[:id])
+    if @item.update(item_params)
+      flash[:success] = "アイテム 編集完了"
+      redirect_to user_items_path(@user)
+    else
+      render "edit", status: :unprocessable_entity
     end
   end
 
@@ -33,4 +48,9 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:name, :main_category, :stock, :days)
     end
+
+    def set_user
+      @user = current_user
+    end
+
 end
