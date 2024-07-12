@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_08_154649) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_12_120134) do
   create_table "item_maintags", force: :cascade do |t|
     t.integer "item_id", null: false
     t.integer "maintag_id", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_154649) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.float "stock"
+    t.integer "stock"
     t.integer "days"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false

@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <div class="row">
     <div class="col-md-8">
-      <h3>今週切れそうなもの</h3>
+      <h3>(<%= Time.zone.today.strftime("%m.%d") %>)1週間で切れそう</h3>
         <table>
           <%= render "shared/item_table" %>
           <%= render "shared/feed" %>
