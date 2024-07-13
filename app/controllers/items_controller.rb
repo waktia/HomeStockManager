@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :logged_in_user, only: [:index, :create, :update, :destroy]
-  before_action :set_user, only:[:index, :create, :edit, :update]
+  before_action :set_user, only:[:index, :create, :edit, :update, :destroy]
   def index
     @feed_items = current_user.feed
     @item = current_user.items.build
@@ -52,5 +52,6 @@ class ItemsController < ApplicationController
     def set_user
       @user = current_user
     end
+
 
 end
