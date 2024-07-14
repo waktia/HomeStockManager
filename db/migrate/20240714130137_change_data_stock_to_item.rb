@@ -1,5 +1,5 @@
 class ChangeDataStockToItem < ActiveRecord::Migration[7.1]
-  def change
-    change_column :items, :stock, :integer
+  def up
+    change_column :items, :stock, :float
   end
 end

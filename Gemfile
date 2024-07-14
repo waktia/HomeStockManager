@@ -16,6 +16,7 @@ gem "bootsnap", require: false
 gem "bootstrap-sass"
 gem "sassc-rails"
 gem "bcrypt"
+gem "whenever", require: false
 
 group :development, :test do
 

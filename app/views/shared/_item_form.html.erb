@@ -1,13 +1,13 @@
 <%= form_with(model: [@user,@item], loclal: true) do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <div class ="field">
-      <%= f.label :name %>
+      <%= f.label :name, "アイテム名" %>
       <%= f.text_field :name, class: "form-control" %>
       <%= f.label :main_category_id, ("カテゴリー #{ link_to "  (新規カテゴリーを作成)", new_user_main_category_path(@user)}").html_safe %><br>
       <%= f.collection_select :main_category_id, MainCategory.all, :id, :name, {include_blank: "選択してください"}, {class: "form-control"}  %><br>
-      <%= f.label :stock %>
+      <%= f.label :stock, "在庫の量(%)" %>
       <%= f.text_field :stock, class: "form-control" %>
-      <%= f.label :days %>
+      <%= f.label :days, "在庫を使い切る日数(日)" %>
       <%= f.text_field :days, class: "form-control" %>
   </div>
   <%= f.submit "作成", class: "btn btn-primary" %>

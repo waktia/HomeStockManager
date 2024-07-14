@@ -7,7 +7,7 @@
     <% else %>
       <td><%= current_user.main_categories.find(item.main_category_id).name %></td>
     <% end %>
-    <td><%= item.stock %></td>
+    <td><%= item.stock.to_i %></td>
     <td><%= item.days %></td>
     <td><%= limit_day(item.stock, item.days) %></td>
     <% if current_user?(item.user) %>
