@@ -99,7 +99,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'https://homestockmanager.onrender.com', protocol: 'https' }
   config.action_mailer.smtp_settings = {
-    address: 'homestockmanager.send@gmail.com',
+    address: 'smtp.gmail.com',
     port: 587,
     domain: 'https://homestockmanager.onrender.com',
     user_name: ENV['GMAIL_USERNAME'],
