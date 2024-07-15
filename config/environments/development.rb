@@ -40,7 +40,18 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   host = "localhost:3000"
   config.action_mailer.default_url_options = {host: host, protocol: "http" }
-
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'homestockmanager.send@gmail.com',
+    port: 587,
+    domain: 'https://homestockmanager.onrender.com',
+    user_name: ENV['GMAIL_USERNAME'],
+    password: ENV['GMAIL_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.

@@ -12,6 +12,7 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
+
 gem "bootstrap-sass"
 gem "sassc-rails"
 gem "bcrypt"
@@ -21,6 +22,7 @@ group :development, :test do
   gem "sqlite3", "~> 1.4"
   gem "debug", platforms: %i[ mri windows ]
   gem "rspec-rails"
+  gem "dotenv-rails"
 end
 
 group :development do
