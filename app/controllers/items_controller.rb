@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :logged_in_user, only: [:index, :create, :update, :destroy]
   before_action :set_user, only:[:index, :create, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, ]
+  before_action :correct_user, only: [:create, :update, :destroy]
+
+
   def index
     @feed_items = current_user.feed.order(main_category_id: :ASC)
     @item = current_user.items.build

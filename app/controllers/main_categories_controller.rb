@@ -1,6 +1,6 @@
 class MainCategoriesController < ApplicationController
-  before_action :logged_in_user, only: [:create, :update, :destroy]
-
+  before_action :logged_in_user, only: [:index, :new, :edit, ]
+  before_action :correct_user, only: [:create, :update, :destroy]
   before_action :set_user, only: [:index, :new, :create]
   before_action :set_main_category, only: [:edit, :update, :destroy]
 
