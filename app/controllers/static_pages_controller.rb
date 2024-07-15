@@ -9,6 +9,12 @@ class StaticPagesController < ApplicationController
 
 
   def help
-    @user = User.find(current_user.id)
+    if logged_in?
+      @user = User.find(current_user.id)
+    else
+      flash[:danger] = "ログインしてください"
+      redirect_to root_path
+    end
+
   end
 end
