@@ -1,9 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
-      @items = current_user.items
       @item = current_user.items.build
-      @feed_items = current_user.feed
+      @feed_items = current_user.items.weekly_limit
       @user = User.find(current_user.id)
     end
   end
