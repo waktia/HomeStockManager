@@ -37,12 +37,17 @@ class MainCategoriesController < ApplicationController
 
 
   def destroy
-    @main_category.destroy
-    flash[:success] = "カテゴリーを削除しました"
-    if request.referrer.nil?
-      redirect_to new_user_main_category_path(@user), status: :see_other
+    if @user.items.find_by(main_category_id: @main_category.id).nil?
+      @main_category.destroy
+      flash[:success] = "カテゴリーを削除しました"
+      if request.referrer.nil?
+        redirect_to user_main_categories_path(@user), status: :see_other
+      else
+        redirect_to request.referrer, status: :see_other
+      end
     else
-      redirect_to request.referrer, status: :see_other
+      flash[:danger] = "管理アイテムにカテゴリーが含まれているので、削除できません。アイテムのカテゴリーを外してください"
+      redirect_to user_main_categories_path(@user), status: :see_other
     end
   end
 
