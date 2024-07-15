@@ -19,23 +19,23 @@ class Item < ApplicationRecord
     self.stock = 0 if self.stock < 0
   end
 
-  #開発環境用
-  scope :weekly_limit, -> {
-    where("DATE(DATETIME(COALESCE(updated_at, created_at), '+' || round(days*stock/100, -1) || ' days')) <= DATE(?)", Date.today + 7)
-  }
 
-  scope :mothly_limit, -> {
-    where("DATE(COALESCE(updated_at, created_at), '+' || round(days*stock/100, -1) || ' days') <= DATE(?)", Date.today + 31)
-  }
+  if Rails.env.production?
+    scope :weekly_limit, -> {
+      where("DATE(COALESCE(updated_at, created_at)) + INTERVAL '1 day' * days <= ?", Date.today + 7 )
+    }
+    scope :monthly_limit, -> {
+      where("DATE(COALESCE(updated_at, created_at)) + INTERVAL '1 day' * days <= ?", Date.today + 31 )
+    }
 
+  else
+    scope :weekly_limit, -> {
+      where("DATE(DATETIME(COALESCE(updated_at, created_at), '+' || round(days*stock/100, -1) || ' days')) <= DATE(?)", Date.today + 7)
+    }
+    scope :mothly_limit, -> {
+      where("DATE(COALESCE(updated_at, created_at), '+' || round(days*stock/100, -1) || ' days') <= DATE(?)", Date.today + 31)
+    }
+  end
 
-  # #本番環境用
-  # scope :weekly_limit, -> {
-  #   where("DATE(COALESCE(updated_at, created_at)) + INTERVAL '1 day' * days <= ?", Date.today + 7 )
-  # }
-
-  # scope :monthly_limit, -> {
-  #   where("DATE(COALESCE(updated_at, created_at)) + INTERVAL '1 day' * days <= ?", Date.today + 31 )
-  # }
 
 end

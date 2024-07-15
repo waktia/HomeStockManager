@@ -4,7 +4,6 @@ ruby "3.2.1"
 
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 gem "sprockets-rails"
-gem "sqlite3", "~> 1.4"
 gem "puma", ">= 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
@@ -19,7 +18,7 @@ gem "bcrypt"
 gem "whenever", require: false
 
 group :development, :test do
-
+  gem "sqlite3", "~> 1.4"
   gem "debug", platforms: %i[ mri windows ]
   gem "rspec-rails"
 end
@@ -37,5 +36,5 @@ group :test do
 end
 
 group :production do
-  gem "pg"
+  gem "pg", "~> 1.4"
   end
