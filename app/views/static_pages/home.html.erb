@@ -1,4 +1,13 @@
 <% if logged_in? %>
+<br>
+<div>
+  <%= link_to "管理一覧へ", user_items_path(@user) %>
+</div>
+
+<div>
+  <%= link_to "カテゴリーを作成", new_user_main_category_path(@user) %>
+</div>
+
   <div class="row">
     <div class="col-md-8">
       <h3>(<%= Time.zone.today.strftime("%m.%d") %>)1週間で切れそう</h3>
