@@ -20,7 +20,7 @@ RSpec.describe UserMailer, type: :mailer do
     it "renders the headers" do
       expect(mail.subject).to eq("Account activation")
       expect(mail.to).to eq(["tagtag@tag.com"])
-      expect(mail.from).to eq(["homestockmanager.send@gmail.com"])
+      expect(mail.from).to eq([ENV["GMAIL_USERNAME"]])
     end
 
     # it "renders the body" do
