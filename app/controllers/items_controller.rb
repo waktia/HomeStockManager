@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_user, only:[:index, :create, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:index, :edit, ]
-  before_action :correct_user, only: [:create, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, :create]
+  before_action :correct_user, only: [:update, :destroy]
 
 
   def index
@@ -54,6 +54,11 @@ class ItemsController < ApplicationController
 
     def set_user
       @user = current_user
+    end
+
+    def correct_user
+      @item = current_user.items.find_by(id: params[:id])
+      redirect_to(root_url, status: :see_other) if @item.nil?
     end
 
 
