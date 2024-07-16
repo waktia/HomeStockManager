@@ -36,8 +36,21 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system in a temporary directory.
   config.active_storage.service = :test
-  config.action_mailer.default_url_options = { host= "localhost:3000" }
-  config.action_mailer.perform_caching = false
+
+  host = "localhost:3000"
+  config.action_mailer.default_url_options = {host: host, protocol: "http" }
+  config.action_mailer.raise_delivery_errors = true
+  #config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: host,
+    user_name: ENV['GMAIL_USERNAME'],
+    password: ENV['GMAIL_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
