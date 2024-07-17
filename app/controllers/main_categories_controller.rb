@@ -1,6 +1,6 @@
 class MainCategoriesController < ApplicationController
   before_action :logged_in_user, only: [:index, :new, :edit, :create]
-  before_action :correct_user, only: [:update, :destroy]
+  before_action :correct_user, only: [:index, :new ]
   before_action :set_user, only: [:index, :new, :create]
   before_action :set_main_category, only: [:edit, :update, :destroy]
 
@@ -68,7 +68,13 @@ class MainCategoriesController < ApplicationController
   end
 
   def correct_user
-    @main_category = current_user.main_categories.find_by(id: params[:id])
-    redirect_to(root_url, status: :see_other) if @main_category.nil?
+    @user = User.find_by(id: params[:user_id])
+    if @user.nil?
+      flash[:danger] = "ユーザーが見つかりません"
+      redirect_to(root_url)
+    elsif @user != current_user
+      flash[:danger] = "アクセス権限がありません"
+      redirect_to(root_url)
+    end
   end
 end

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :show,]
-  before_action :correct_user,   only: [ :update]
+  before_action :logged_in_user, only: [:index, :edit, :update, :show]
+  before_action :correct_user,   only: [ :show, :edit, :update]
 
   def index
   end
@@ -45,8 +45,13 @@ class UsersController < ApplicationController
     end
 
     def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url, status: :see_other) unless current_user?(@user)
+      @user = User.find_by(id: params[:id])
+      if @user.nil?
+        flash[:danger] = "ユーザーが見つかりません"
+        redirect_to(root_url)
+      elsif @user != current_user
+        flash[:danger] = "アクセス権限がありません"
+        redirect_to(root_url)
+      end
     end
-
 end
