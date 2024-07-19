@@ -6,7 +6,8 @@ before(:each) do
   @user = User.create(
     name: "Mike",
     email: "test@test.com",
-    password: "foofoo", password_confirmation: "foofoo"
+    password: "foofoo",
+    password_confirmation: "foofoo"
   )
 end
 
@@ -21,6 +22,11 @@ end
       @user.name = "a"*51
       expect(@user).to be_invalid
     end
+
+    it "is name length limit ok" do
+      @user.name = "a"*50
+      expect(@user).to be_valid
+    end
   end
 
 
@@ -34,6 +40,13 @@ end
       @user.email = "a"*247 +"@test.com"
       expect(@user).to be_invalid
     end
+
+    it "is email length limit ok" do
+      @user.email = "a"*246 +"@test.com"
+      expect(@user).to be_valid
+    end
+
+
 
     it "is email uniqueness" do
       other_user = @user.dup
