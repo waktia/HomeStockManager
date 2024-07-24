@@ -27,8 +27,15 @@
 =end%>
 
 <% else %>
-  <h1>HomeStockManager</h1>
-    <div class="center jumbotron">
-      <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
+<div id="wrap">
+<div class="home-top-background">
+  <h1 class="not_opacity title">HomeStockManager</h1>
+    <p class="not_opacity sub_title">家の在庫を簡単に管理し、日常生活をもっと便利にしましょう!</p>
+    <div class="center not_opacity">
+      <p class="signup">新規登録は<%= link_to "こちら", signup_path %></p>
+      <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary col-3 mx-auto" %>
     </div>
+
+</div>
+</div>
 <% end %>

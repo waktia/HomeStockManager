@@ -17,6 +17,89 @@ textarea {
   text-align: center;
 }
 
-.center h1 {
+// header
+header.navbar {
+  position: fixed;
+  border-radius: 0;
+  height: 80px;
+
+}
+
+.icon {
+  float: left;
+  padding-left: 10px;
+  height: 50px;
+}
+
+
+
+// // static-home
+
+.title {
+  margin-left: 50px;
+  font-size: 45px; /* 必要に応じてフォントサイズを調整 */
+}
+
+.sub_title{
+  margin-bottom: 0;
+  padding: 0 70px; /* 左右のパディングを追加 */
+  font-size: 18px; /* 必要に応じてフォントサイズを調整 */
+}
+
+.flash-message {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.8); /* 背景色を半透明に */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.not_opacity > .btn {
+  display: block;
   margin-bottom: 10px;
+  padding: 15px;
+  color: black;
+  background-color: rgb(255, 176, 65);
+  border-color:  rgb(255, 176, 65);
+}
+
+.signup {
+  margin-top: 350px;
+  margin-right: 15%;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+
+.home-top-background {
+  background-image: url('home_top.png');
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh; /* 画面全体の高さ */
+  width: 100%; /* 画面全体の幅 */
+  padding-top: 50px;
+
+}
+
+.home-top-background::after{
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height:100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+  opacity: 0.5;
+}
+
+.home-top-background> .not_opacity{
+  position: relative;
+  z-index: 3;
+
 }

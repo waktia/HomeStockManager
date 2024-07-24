@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_user, only:[:index, :create, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:index, :edit, :create]
+  before_action :logged_in_user, only: [:index, :edit]
   before_action :correct_item, only: [:update, :destroy]
   before_action :correct_user, only: [:index, :edit ]
 

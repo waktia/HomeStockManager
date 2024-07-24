@@ -19,7 +19,16 @@
 
 # Learn more: http://github.com/javan/whenever
 
+#require File.expand_path(File.dirname(__FILE__) + "/environment")
+# config/schedule.rb
 
-every 1.day, at: "12:00 am" do
-  runner "Item.update_all_stocks"
+# カスタム変数の設定
+set :script_path, "/Users/wakitakouhei/勉強/Portfolio/HomeStockManager/scripts"
+set :log_path, "/Users/wakitakouhei/勉強/Portfolio/HomeStockManager/log/cron.log"
+
+# 出力ログの設定
+set :output, "#{log_path}"
+
+every 1.day, at: "12:oo am" do
+  command "#{script_path}/update_stocks.sh"
 end
