@@ -21,8 +21,7 @@ textarea {
 header.navbar {
   position: fixed;
   border-radius: 0;
-  height: 80px;
-
+  height: 60px;
 }
 
 .icon {
@@ -30,8 +29,6 @@ header.navbar {
   padding-left: 10px;
   height: 50px;
 }
-
-
 
 // // static-home
 
@@ -47,13 +44,9 @@ header.navbar {
 }
 
 .flash-message {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  background-color: rgba(255, 255, 255, 0.8); /* 背景色を半透明に */
-  padding: 10px;
+  float: center;
+  padding-top: 10px;
+  margin: 0;
   border-radius: 5px;
 }
 
@@ -73,7 +66,6 @@ header.navbar {
   font-weight: bold;
 
 }
-
 
 .home-top-background {
   background-image: url('home_top.png');
@@ -102,4 +94,34 @@ header.navbar {
   position: relative;
   z-index: 3;
 
+}
+
+// login
+.form-control{
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: block;
+  width: 30%;
+  margin-bottom: 10px;
+  padding: 15 0;
+  color: black;
+  background-color: rgb(255, 176, 65);
+  border-color:  rgb(255, 176, 65);
+}
+
+.login{
+  padding-bottom: 10%;
+}
+
+
+// password-reset
+.title-reset{
+  padding-bottom: 10%;
+}
+
+// signup
+.title-signup{
+  padding-bottom: 10%;
 }
