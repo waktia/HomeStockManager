@@ -1,16 +1,11 @@
-<h2>Mypage</h2>
-      <section class="user_info">
-        <%= render "shared/user_info" %>
-      </section>
-
-<div>
-  <%= link_to "管理アイテム一覧ページ", user_items_path(@user)%>
-</div>
-
-<div>
-  <%= link_to "カテゴリー一覧ページ", user_main_categories_path(@user) %>
-</div>
-
-<div>
-  <%= link_to "プロフィール編集画面", edit_user_path %>
+<div class="container">
+<h1><%= current_user.name %>さんのマイページ</h2>
+  <div class="setting">
+    <%= link_to "管理アイテム一覧ページ", user_items_path(@user)%>
+  <div class="setting">
+    <%= link_to "カテゴリー一覧ページ", user_main_categories_path(@user) %>
+  </div>
+  <div class="setting">
+    <%= link_to "プロフィール編集画面", edit_user_path %>
+  </div>
 </div>

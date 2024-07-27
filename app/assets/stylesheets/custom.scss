@@ -3,9 +3,11 @@
 
 body {
   padding-top: 60px;
+  background-color: rgb(255, 239, 214);
 }
 
 section {
+
   overflow: auto;
 }
 
@@ -15,6 +17,10 @@ textarea {
 
 .center {
   text-align: center;
+}
+
+h1{
+  padding-bottom: 10%;
 }
 
 // header
@@ -111,17 +117,15 @@ header.navbar {
   border-color:  rgb(255, 176, 65);
 }
 
-.login{
-  padding-bottom: 10%;
-}
-
-
 // password-reset
-.title-reset{
-  padding-bottom: 10%;
-}
+
 
 // signup
-.title-signup{
-  padding-bottom: 10%;
+
+// Mypage
+.setting{
+  text-align: center;
+  margin: 40px;
+  padding: 10px;
+  font-size: 21px;
 }
