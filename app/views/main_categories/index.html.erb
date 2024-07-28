@@ -1,7 +1,9 @@
-<h2>カテゴリー一覧</h2>
-
-
-<%= link_to "  (新規カテゴリーを作成)", new_user_main_category_path(@user) %>
+<div class="container">
+<h1>カテゴリー管理</h2>
+<%= link_to new_user_main_category_path(@user), class: "btn btn-primary mx-auto" do %>
+  新規カテゴリーを作成
+<% end %>
+<div class="table-container">
   <table>
   <tr>
     <th>カテゴリー名</th>
@@ -11,3 +13,5 @@
 
       <%= render partial: "main_category", collection: @main_categories %>
   </table>
+  </div>
+</div>
