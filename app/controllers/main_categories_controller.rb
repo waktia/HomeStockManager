@@ -28,7 +28,7 @@ class MainCategoriesController < ApplicationController
 
   def update
     if @main_category.update(main_category_params)
-      flash[:success] = "プロフィール 編集完了"
+      flash[:success] = "カテゴリー編集完了"
       redirect_to user_main_categories_path(@user)
     else
       render "edit", status: :unprocessable_entity
@@ -60,7 +60,7 @@ class MainCategoriesController < ApplicationController
 
   def set_main_category
     @main_category = MainCategory.find(params[:id])
-    @user = @main_category.user
+    @user =current_user
   end
 
   def main_category_params

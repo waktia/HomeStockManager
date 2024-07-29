@@ -1,3 +1,4 @@
+<div class="container">
 <h1>カテゴリーを作成</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -5,8 +6,12 @@
       <%= render "shared/error_messages", object: f.object %>
       <%= f.label :name, "カテゴリー名" %>
       <%= f.text_field :name, class: "form-control" %>
-      <%= f.submit "新規作成", class: "btn btn-primary" %>
+      <%= f.submit "新規作成", class: "btn btn-primary mx-auto" %>
+      <%= link_to :back do %>
+       <button class="btn btn-primary mx-auto">戻る</button>
+      <% end %>
       <% end %>
    </div>
-        <button type="button"><%= link_to "戻る", :back %></button>
+
   </div>
+</div>
