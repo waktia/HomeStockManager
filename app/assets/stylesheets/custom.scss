@@ -99,6 +99,22 @@ header.navbar {
 .home-top-background> .not_opacity{
   position: relative;
   z-index: 3;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.button-container .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 60%; /* ボタンの内側の余白を調整 */
+  font-size: 16px; /* フォントサイズを調整 */
+  text-align: center;
 
 }
 

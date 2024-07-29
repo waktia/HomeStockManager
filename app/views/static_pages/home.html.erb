@@ -2,20 +2,24 @@
 
 <div class="container">
 
-<div>
-  <%= link_to "管理一覧へ", user_items_path(@user) %>
-  <%= link_to "カテゴリーを作成", new_user_main_category_path(@user) %>
+<div class="button-container">
+  <%= link_to user_items_path(@user) do %>
+   <button class="btn btn-primary">管理一覧へ</button>
+  <% end %>
+  <%= link_to new_user_main_category_path(@user) do%>
+    <button class="btn btn-primary">カテゴリーを作成する</button>
+  <% end %>
 </div>
 
   <div class="row">
-    <div class="col-md-8">
-      <h3>1週間で無くなる</h3>
+
+      <h3>1週間で無くなるリスト</h3>
         <table>
           <%= render "shared/item_table" %>
           <%= render "shared/feed" %>
         </table>
-    </div>
   </div>
+</div>
 </div>
 
 <% else %>
