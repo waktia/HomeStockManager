@@ -1,15 +1,17 @@
 <% if logged_in? %>
 
-  <div>
-    <aside class="col-md-4">
+    <aside class="col-md-3">
+    <h3>管理アイテムの作成</h3>
       <section class="item_form">
         <%= render "shared/item_form" %>
       </section>
     </aside>
-  <h2>管理アイテム一覧</h2>
+
+  <div class="col-md-8">
+    <h1>管理アイテム一覧</h2>
 
     <% if @user.items.any? %>
-    <div class="col-md-8">
+
         <table>
           <%= render "shared/item_table" %>
           <%= render "shared/feed" %>

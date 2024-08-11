@@ -1,3 +1,9 @@
-<h2>管理アイテム編集画面</h2>
+<div class="container">
+<h1>管理アイテム編集画面</h2>
+  <div class="item-edit">
         <%= render "shared/item_form" %>
-     <button type="button"><%= link_to "戻る", :back %></button>
+      <%= link_to :back do %>
+       <button class="btn btn-primary mx-auto">戻る</button>
+      <% end %>
+  </div>
+</div>
