@@ -21,8 +21,8 @@ class ItemsController < ApplicationController
       flash[:success] = "在庫管理の登録が完了しました"
       redirect_to root_url
     else
-      Rails.logger.info @item.errors.full_messages
-      @feed_items = current_user.feed
+      flash[:danger] = "アイテムの登録に失敗しました"
+      @feed_items = current_user.items.weekly_limit.order(main_category_id: :ASC)
       render "static_pages/home", status: :unprocessable_entity
     end
   end
