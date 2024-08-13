@@ -46,8 +46,6 @@ end
       expect(@user).to be_valid
     end
 
-
-
     it "is email uniqueness" do
       other_user = @user.dup
       other_user.email = @user.email
