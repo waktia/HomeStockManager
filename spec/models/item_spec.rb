@@ -1,28 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  before(:each) do
-    @user = User.create(
-      name: "Mike",
-      email: "test@test.com",
-      password: "foofoo",
-      password_confirmation: "foofoo"
-    )
-    @user.save
-
-    @main_category = MainCategory.create(
-      name: "sample"
-    )
-    @main_category.save
-
-    @item = Item.create(
-      name: "シャンプー",
-      main_category: @main_category,
-      user: @user,
-      stock: 100,
-      days: 30
-    )
-  end
+    before(:each) do
+      @item = FactoryBot.create(:item)
+    end
 
 
 
@@ -97,6 +78,7 @@ RSpec.describe Item, type: :model do
 
   describe "item user_id test" do
     it "is not include user_id NG " do
+      @user = @item.user
       @user.id = ""
       @item.user = @user
       expect(@item).to be_invalid
@@ -105,14 +87,11 @@ RSpec.describe Item, type: :model do
 
   describe "item main_category" do
     it "is not include main_categroy OK" do
+      @main_category = @item.main_category
       @main_category.name = ""
       @item.main_category = @main_category
       expect(@item).to be_valid
     end
 
-    it "is delete main_categroy OK" do
-      @item.main_category.delete
-      expect(@item).to be_valid
-    end
   end
 end

@@ -22,6 +22,7 @@ group :development, :test do
   gem "sqlite3", "~> 1.4"
   gem "debug", platforms: %i[ mri windows ]
   gem "rspec-rails"
+  gem "factory_bot_rails"
   gem "dotenv-rails"
 end
 

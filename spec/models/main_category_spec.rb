@@ -3,19 +3,7 @@ require 'rails_helper'
 RSpec.describe MainCategory, type: :model do
 
   before(:each) do
-    @user = User.create(
-      name: "Mike",
-      email: "test@test.com",
-      password: "foofoo",
-      password_confirmation: "foofoo"
-    )
-    @user.save
-
-    @main_category = MainCategory.create(
-      name: "sample",
-      user: @user
-    )
-
+    @main_category = FactoryBot.create(:main_category)
 
   end
 
@@ -40,6 +28,7 @@ RSpec.describe MainCategory, type: :model do
 
   describe "main_category user_id test" do
     it "is user_id blank NG" do
+      @user = @main_category.user
       @user.id = ""
       @main_category.user = @user
       expect(@main_category).to be_invalid
