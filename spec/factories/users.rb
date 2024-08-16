@@ -3,5 +3,6 @@ FactoryBot.define do
     name { "sample" }
     sequence(:email) { |n| "sample#{n}@sample.com" }
     password { "sample" }
+    activated { true }
   end
 end
