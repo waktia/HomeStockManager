@@ -11,7 +11,7 @@ services:
     region: singapore
     plan: free
     buildCommand:
-      bundle install --without development test;
+      bundle install;
       yarn install;
       bundle exec rake assets:precompile;
       bundle exec rake db:migrate;
