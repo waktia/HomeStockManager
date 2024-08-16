@@ -1,7 +1,7 @@
 databases:
   - name: HomeStockManagerDB
     databaseName: homestockmanagerdb_0sko
-    user: HomeStockManager
+    user: homestockmanagerdb_qki3_user
     region: singapore
 
 services:
