@@ -13,8 +13,8 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
 
-gem "bootstrap-sass"
-gem "sassc-rails"
+gem "bootstrap-sass", "3.4.1"
+gem "sassc-rails", "2.1.2"
 gem "bcrypt"
 gem "whenever", require: false
 
