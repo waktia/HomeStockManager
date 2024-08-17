@@ -19,11 +19,11 @@ class ItemsController < ApplicationController
     @item = current_user.items.build(item_params)
     if @item.save
       flash[:success] = "在庫管理の登録が完了しました"
-      redirect_to root_url
+      redirect_to user_items_path(@user)
     else
       flash[:danger] = "アイテムの登録に失敗しました"
-      @feed_items = current_user.items.weekly_limit.order(main_category_id: :ASC)
-      render "static_pages/home", status: :unprocessable_entity
+      @feed_items = current_user.feed.order(main_category_id: :ASC)
+      render "index", status: :unprocessable_entity
     end
   end
 
