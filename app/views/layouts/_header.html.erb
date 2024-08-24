@@ -1,10 +1,18 @@
-<header class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <%= link_to root_path, class: "navbar-nav ms-auto" do %>
+<header class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="contents">
+    <%= link_to root_path, class: "navbar-nav" do %>
       <%= image_tag "Icon.png", class: "icon" %>
     <% end %>
+  </div>
+
+  <nav class="dropdown">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav">
         <li class="nav-item"> <%= link_to "Home", root_path, class: "nav-link" %></li>
         <li class="nav-item"> <%= link_to "Help", help_path, class: "nav-link" %></li>
         <% if logged_in? %>
@@ -16,5 +24,7 @@
         <% end %>
       </ul>
     </div>
+  </nav>
+
 
 </header>
