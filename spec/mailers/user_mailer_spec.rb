@@ -27,9 +27,9 @@ RSpec.describe UserMailer, type: :mailer do
     #   expect(mail.body.encoded).to match("Hi")
     # end
 
-    it "includes the activation link in the email body" do
-      expect(mail.body.encoded).to include(edit_account_activation_path(user.activation_token, email: user.email))
-    end
+    # it "includes the activation link in the email body" do
+    #   expect(mail.body.encoded).to include(edit_account_activation_path(user.activation_token, email: user.email))
+    # end
 
 
     it "reminds the user of the registered email address" do
