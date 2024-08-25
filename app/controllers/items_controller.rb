@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = current_user.items.find_by(id: params[:id])
+    @item.stock = @item.stock.round(2)
   end
 
 
