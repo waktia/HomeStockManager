@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
 
   def index
-    @feed_items = current_user.feed.order(main_category_id: :ASC)
+    @feed_items = current_user.feed.order(main_category_id: :ASC).page(params[:page]).per(20)
     @item = current_user.items.build
   end
 

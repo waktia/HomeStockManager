@@ -11,13 +11,17 @@
     <h1>管理アイテム一覧</h2>
 
     <% if @user.items.any? %>
-
+    <div>
+      <%= paginate @feed_items %>
+    </div>
         <table>
           <%= render "shared/item_table" %>
           <%= render "shared/feed" %>
         </table>
-    </div>
     <% end %>
+    <div>
+      <%= paginate @feed_items %>
+    </div>
   </div>
 
 <% else %>

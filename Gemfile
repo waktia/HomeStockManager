@@ -12,6 +12,8 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem "jquery-rails"
+gem "kaminari"
+gem 'rails-i18n'
 
 
 gem "bootstrap-sass"
