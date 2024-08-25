@@ -7,9 +7,7 @@
       <%= f.label :name, "カテゴリー名" %>
       <%= f.text_field :name, class: "form-control" %>
       <%= f.submit "新規作成", class: "btn btn-primary mx-auto" %>
-      <%= link_to :back do %>
-       <button class="btn btn-primary mx-auto">戻る</button>
-      <% end %>
+       <button class="btn btn-primary mx-auto" onclick="history.back()">戻る</button>
       <% end %>
    </div>
 
