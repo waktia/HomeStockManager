@@ -16,11 +16,18 @@ class MainCategoriesController < ApplicationController
 
   def create
     @main_category = @user.main_categories.build(main_category_params)
-    if @main_category.save
-      redirect_to user_main_categories_path(@user)
-    else
+    if @user.main_categories.count >= 20
+      flash[:danger]="カテゴリーは20個まで作成可能です"
       render "new", status: :unprocessable_entity
+    else
+      if @main_category.save
+        redirect_to user_main_categories_path(@user)
+      else
+        render "new", status: :unprocessable_entity
+      end
     end
+
+
   end
 
   def edit
