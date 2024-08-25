@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
       redirect_to user_items_path(@user)
     else
       flash[:danger] = "アイテムの登録に失敗しました"
-      @feed_items = current_user.feed.order(main_category_id: :ASC)
+      @feed_items = current_user.feed.order(main_category_id: :ASC).page(params[:page]).per(20)
       render "index", status: :unprocessable_entity
     end
   end
