@@ -1,24 +1,22 @@
-# README
+# Home Stock Manager
+  家の消耗品を管理し、在庫が無くなりそうな物を一覧で表示します。
+  買い忘れを防げるサービスです！
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# サイト　URL
+　[サイトリンク](https://homestockmanager.onrender.com/)
 
-Things you may want to cover:
+#　サービス開発の背景
+　買い物に来た時に、「そういえばシャンプーってまだあったかな」と思い
+　いざ帰宅すると、残りが少ししかなく、水を入れて薄めたことありませんか？
+  買い忘れたことを後から気づいて、またスーパーに行く。。。
+  こんな面倒なことを防ぐために開発を始めました。
 
-* Ruby version
+  このサービスは、家の消耗品を管理し、使い切る目安の時間を入力することで
+  在庫が切れそうな物を一覧で確認でき、買い忘れを防げるサービスです。
 
-* System dependencies
+# 画面・機能
+  管理したい物を入力します
+　![item index page](./app/assets/images/item_index.png)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  残り1週間を切ると買い物メモとして表示されます！
+  ![item limit memo](./app/assets/images/home.png)
