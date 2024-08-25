@@ -22,7 +22,7 @@ class Item < ApplicationRecord
 
   if Rails.env.production?
     scope :weekly_limit, -> {
-      where("DATE(COALESCE(updated_at, created_at) + INTERVAL '1 day' * round((days * stock / 100.0)::numeric, -1)) <= DATE(?)", Date.today + 7)
+      where("DATE(COALESCE(updated_at, created_at) + INTERVAL '1 day' * (days * stock / 100.0)::numeric) <= DATE(?)", Date.today + 7)
     }
     scope :monthly_limit, -> {
       where("DATE(COALESCE(updated_at, created_at) + INTERVAL '1 day' * round((days * stock / 100.0)::numeric, -1)) <= DATE(?)", Date.today + 31)
