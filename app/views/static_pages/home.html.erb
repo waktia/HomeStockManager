@@ -12,7 +12,15 @@
 </div>
 
   <div class="row item-list">
-      <h2>今週中に無くなるリスト</h2>
+
+    <% if @filter == "month"%>
+      <h2>1ヶ月で無くなるリスト</h2>
+      <%= link_to '1週間に切替', root_path(filter: 'week'), class: "btn btn-primary" %>
+
+    <% else %>
+      <h2>１週間で無くなるリスト</h2>
+      <%= link_to '1ヶ月に切替', root_path(filter: 'month'), class: "btn btn-primary" %>
+    <% end %>
 
         <table>
           <%= render "shared/item_table" %>

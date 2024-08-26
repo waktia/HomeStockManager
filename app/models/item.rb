@@ -32,7 +32,7 @@ class Item < ApplicationRecord
     scope :weekly_limit, -> {
       where("DATE(DATETIME(COALESCE(updated_at, created_at), '+' || round(days*stock/100, -1) || ' days')) <= DATE(?)", Date.today + 7)
     }
-    scope :mothly_limit, -> {
+    scope :monthly_limit, -> {
       where("DATE(COALESCE(updated_at, created_at), '+' || round(days*stock/100, -1) || ' days') <= DATE(?)", Date.today + 31)
     }
   end
