@@ -27,6 +27,8 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_bot_rails"
   gem "dotenv-rails"
+  gem "byebug"
+
 end
 
 group :development do
@@ -39,6 +41,7 @@ group :test do
 
   gem "capybara"
   gem "selenium-webdriver"
+
 end
 
 group :production do

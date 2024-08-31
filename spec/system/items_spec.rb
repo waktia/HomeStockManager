@@ -18,7 +18,7 @@ RSpec.describe "Items", type: :system do
       fill_in "在庫を使い切る日数(日)", with: 30
       click_button "作成"
 
-      expect(page).to have_current_path "/"
+      expect(page).to have_current_path "/users/#{user.id}/items"
 
   }.to change(user.items, :count).by(1)
   end

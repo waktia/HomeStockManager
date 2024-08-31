@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :main_category do
-    name { "sample" }
+    sequence(:name){|n| "category_#{n}"}
     association :user, factory: :user
   end
 end

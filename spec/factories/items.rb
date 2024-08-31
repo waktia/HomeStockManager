@@ -6,4 +6,5 @@ FactoryBot.define do
     days { 30 }
     association :user, factory: :user
   end
+
 end
