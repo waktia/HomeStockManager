@@ -8,17 +8,32 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: bundle install  # 必要なGemをインストール
+          command: bundle install
       - run:
           name: Run rspec
-          command: bundle exec rspec  # rspecを実行
+          command: bundle exec rspec
+
+  deploy_to_render:
+    docker:
+      - image: curlimages/curl:7.83.1  # curlイメージを使用
+    steps:
+      - run:
+          name: Deploy to Render
+          command: |
+            curl -X POST \
+              -H "Accept: application/json" \
+              -H "Authorization: Bearer ${RENDER_API_KEY}" \
+              -d '{}' \
+              https://api.render.com/v1/services/${RENDER_SERVICE_ID}/deploys
 
 workflows:
   version: 2
-  test:
+  test_and_deploy:
     jobs:
-      - run_rspec:
+      - run_rspec
+      - deploy_to_render:
+          requires:
+            - run_rspec
           filters:
             branches:
-              only:
-                - main  # 必要に応じてテスト実行するブランチを指定
+              only: main  # デプロイを行うブランチを指定
