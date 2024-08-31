@@ -21,4 +21,4 @@ workflows:
           filters:
             branches:
               only:
-                - main  # 必要に応じてテストを実行するブランチを指定
+                - main  # 必要に応じてテスト実行するブランチを指定
