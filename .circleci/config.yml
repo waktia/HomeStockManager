@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   run_rspec:
     docker:
-      - image: cimg/ruby:3.2  # Rubyバージョンに応じて適切なイメージを指定
+      - image: cimg/ruby:3.2.1
     steps:
       - checkout
       - run:
