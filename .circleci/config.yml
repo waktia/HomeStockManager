@@ -24,18 +24,13 @@ jobs:
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-  run_rspec: # This is the name of the workflow, feel free to change it to better match your workflow
-    # Inside the workflow, you define the jobs you want to run.
+  version: 2
+  run_rspec:
     jobs:
       - rspec:
-        filters:
-          branches:
-            only:
-              - main
-      - build:
-        requires:
-          - rspec
-        filters:
-          branches:
-            only:
-              - main
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - main
